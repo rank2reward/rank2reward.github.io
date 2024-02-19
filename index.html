@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Website for ICRA 2024 paper Rank2Reward: Learning Shaped Reward Functions from Passive Video.">
+  <meta name="keywords" content="Rank2Reward">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rank2Reward: Learning Shaped Reward Functions from Passive Video</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GZKT4KP7DC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-GZKT4KP7DC');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/Robot-icon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<!-- <nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://keunhong.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More Research
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://hypernerf.github.io">
+            HyperNeRF
+          </a>
+          <a class="navbar-item" href="https://nerfies.github.io">
+            Nerfies
+          </a>
+          <a class="navbar-item" href="https://latentfusion.github.io">
+            LatentFusion
+          </a>
+          <a class="navbar-item" href="https://photoshape.github.io">
+            PhotoShape
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav> -->
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">Rank2Reward: Learning Shaped Reward Functions from Passive Video</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://dxyang.github.io">Daniel Yang</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/davin-tjia">Davin Tjia</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.https://github.com/JacobB33">Jacob Berg</a><sup>2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://dimadamen.github.io/">Dima Damen</a><sup>3</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://people.csail.mit.edu/pulkitag/">Pulkit Agrawal</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://homes.cs.washington.edu/~abhgupta/">Abhishek Gupta</a><sup>2</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>MIT CSAIL</span>,
+            <span class="author-block"><sup>2</sup>University of Washington</span>,
+            <span class="author-block"><sup>3</sup>University of Bristol</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2011.12948"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=MrKrnHhk8IA"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/dxyang/rank2reward/tree/main"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                </a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/main_fig.png"
+        class="full-width-image"
+        alt="Methods figure."/>
+      <!-- <video id="teaser" autoplay muted loop playsinline height="100%">
+        <source src="./static/videos/teaser.mp4"
+                type="video/mp4"> -->
+      <!-- </video> -->
+      <h2 class="subtitle has-text-centered">
+        <span class="dmethod">Rank2Reward</span> learns well-shaped and calibrated reward functions from video demonstrations that enable effective policy optimization.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Teaching robots novel skills with demonstrations via human-in-the-loop data collection
+            techniques like kinesthetic teaching or teleoperation puts a heavy burden on human supervisors.
+
+            In contrast to this paradigm, it is often significantly easier to provide raw, action-free visual
+            data of tasks being performed. Moreover, this data can even be mined from video datasets or the web.
+
+            Ideally, this data can serve to guide robot learning for new tasks in novel environments, informing
+            both <em>what</em> to do and <em>how</em> to do it.
+
+            A powerful way to encode both the <em>what</em> and the <em>how</em> is to infer a well-shaped
+            reward function for reinforcement learning.
+
+            The challenge is determining how to ground visual demonstration inputs into a well-shaped and
+            informative reward function.
+
+            We propose a technique <span class="dmethod">Rank2Reward</span> for learning behaviors from
+            videos of tasks being performed without access to any low-level states and actions.
+
+            We do so by leveraging the videos to learn a reward function that measures incremental
+            <em>progress</em> through a task by learning how to temporally rank the video frames
+            in a demonstration.
+
+            By inferring an appropriate ranking, the reward function is able to guide reinforcement learning
+            by indicating when task progress is being made.
+
+            This ranking function can be integrated into an adversarial imitation learning scheme resulting
+            in an algorithm that can learn behaviors without exploiting the learned reward function.
+
+            We demonstrate the effectiveness of <span class="dmethod">Rank2Reward</span> at learning behaviors
+            from raw video on a number of tabletop manipulation tasks in both simulations and on a real-world
+            robotic arm.
+
+            We also demonstrate how <span class="dmethod">Rank2Reward</span> can be easily extended to be
+            applicable to web-scale video datasets.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/9cAOJ9Zl_Kw?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+  </div>
+</section>
+
+<!-- Real-World Experiments. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Real-World Experiments</h2>
+    <div class="content has-text-justified">
+      <p>
+        We evaluate <span class="dmethod">Rank2Reward</span> on six different real-world tasks.
+
+        In addition to standard tasks like reaching and pushing, our more complex tasks
+        highlight situations where exploration is non-trivial, techniques like object tracking
+        are ineffective, and reward specification overall is difficult.
+      </p>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="gif-column">
+        <img src="./static/gifs/new_reach.gif"/>
+        <p>Reach</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/new_push.gif"/>
+        <p>Reach</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/new_push_with_obstacle.gif"/>
+        <p>Push w/ Obstacle</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="gif-column">
+        <img src="./static/gifs/new_sweep.gif"/>
+        <p>Sweep</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/new_draweropen.gif"/>
+        <p>Drawer Open</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/old_new_draw.gif"/>
+        <p>Draw</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sim Experiments. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Simulated Experiments</h2>
+    <div class="content has-text-justified">
+      <p>
+        We evaluate <span class="dmethod">Rank2Reward</span> on six different real-world tasks.
+
+        In addition to standard tasks like reaching and pushing, our more complex tasks
+        highlight situations where exploration is non-trivial, techniques like object tracking
+        are ineffective, and reward specification overall is difficult.
+      </p>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_reach.gif"/>
+        <p>Reach</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_push.gif"/>
+        <p>Push</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_hammer.gif"/>
+        <p>Hammer</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_draweropen.gif"/>
+        <p>Drawer Open</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_dooropen.gif"/>
+        <p>Door Open</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_doorclose.gif"/>
+        <p>Door Close</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_buttonpress.gif"/>
+        <p>Button Press</p>
+      </div>
+
+      <div class="gif-column">
+        <img src="./static/gifs/metaworld_assembly.gif"/>
+        <p>Assembly</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Sim Experiments. -->
+
+<!-- Ego4D Experiments. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3">Scaling up: Ego4D</h2>
+    <div class="content has-text-justified">
+      <p>
+        We scale <span class="dmethod">Rank2Reward</span> to a large-scale egocentric dataset,
+        utilizing 20,000 segments of object interactions. From each clip, we utilize the last
+        frame as the goal frame and learn a ranking component conditioned on the goal frame.
+
+        For the discriminator, we sample a positive frame from the same clip as a goal and
+        a negative frame from a different clip as the goal, and train the discriminator to
+        classify whether the given frame and the goal frame come from the same video.
+
+        These negative frames with goals that do not match can be considered counterfeit or
+        counterfactual examples.
+      </p>
+      <p>
+          We randomly select segments from the unseen evaluation set and present the output
+          of <span class="dmethod">Rank2Reward</span> when evaluated with the true goal
+          and a counterfactual goal.
+
+          The ranking for the true goal is overall increasing whereas the counterfeit goal
+          is not and overall has a lower reward than the true goal.
+      </p>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="ego4d-gif-column">
+        <img src="./static/gifs/ego4d_gifs/ego4d.gif"/>
+        <p>Rearranging a plate and rice</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="ego4d-gif-column">
+        <img src="./static/gifs/ego4d_gifs/ego4d_2.gif"/>
+        <p>Moving bread dough on an assembly line</p>
+      </div>
+    </div>
+
+    <div class="columns is-centered">
+      <div class="ego4d-gif-column">
+        <img src="./static/gifs/ego4d_gifs/ego4d_3.gif"/>
+        <p>Bringing a water bottle to mouth and unscrewing the cap</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!--/ Ego4D Experiments. -->
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{yang2024rank,
+  author    = {Yang, Daniel and Tjia, Davin and Berf, Jacob and Damen, Dima and Agrawal, Pulkit and Gupta, Abhishek},
+  title     = {Rank2Reward: Learning Shaped Reward Functions from Passive Video},
+  journal   = {ICRA},
+  year      = {2024},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+      <div class="columns is-centered">
+          <div class="column">
+              <div class="content has-text-centered">
+                  <p>
+                      Website template borrowed from <a href="https://github.com/nerfies/nerfies.github.io">NeRFies</a>.
+                  </p>
+              </div>
+          </div>
+      </div>
+  </div>
+</footer>
+
+</body>
+</html>

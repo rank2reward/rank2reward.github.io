@@ -7,7 +7,7 @@ This website code is based off the [Nerfies website](https://nerfies.github.io)
 If you find Rank2Reward useful for your work please cite:
 ```
 @article{yang2024rank
-  author    = {Yang, Daniel and Tjia, Davin and Berf, Jacob and Damen, Dima and Agrawal, Pulkit and Gupta, Abhishek},
+  author    = {Yang, Daniel and Tjia, Davin and Berg, Jacob and Damen, Dima and Agrawal, Pulkit and Gupta, Abhishek},
   title     = {Rank2Reward: Learning Shaped Reward Functions from Passive Video},
   journal   = {ICRA},
   year      = {2024},
